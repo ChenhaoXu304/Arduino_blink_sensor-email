@@ -15,6 +15,7 @@ time_threshold=12
 lux_threshold=500
 email_min_timespan=60
 last_sent=-email_min_timespan
+detection_period=0.1
 
 if tsl.foundSensor(): 
 	print("Found sensor...")
@@ -46,6 +47,7 @@ if tsl.foundSensor():
 				last_sent=now
 			else:
 				print("Too soon.")
+		time.sleep(detection_period)
 			
 	
 else:
