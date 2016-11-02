@@ -34,8 +34,9 @@ if tsl.foundSensor():
 		full = tsl.getLuminosity(tsl.FULLSPECTRUM)
 		visible = tsl.getLuminosity(tsl.VISIBLE)
 		infrared = tsl.getLuminosity(tsl.INFRARED)
-		lux_diff=full-lux_old
-		lux_old=full
+		lux=tsl.calculateLux(full,infrared)
+		lux_diff=lux-lux_old
+		lux_old=lux
 		if lux_diff>lux_threshold or lux_diff<-lux_threshold:
 			blink_count+=1
 			last_blink=now
