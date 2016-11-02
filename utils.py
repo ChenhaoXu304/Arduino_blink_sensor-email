@@ -12,11 +12,11 @@ def email_sender(gmail_user,gmail_pwd,to,message):
   smtpserver.starttls()
   smtpserver.login(gmail_user, gmail_pwd)
   smtpserver.sendmail(gmail_user, to, message)
-  print "Successfully sent!"
+  print("Successfully sent!")
   smtpserver.close()
 
-def email_constructor(from,to,subject,content):
-  message=["From: "+from]
+def email_constructor(from_,to,subject,content):
+  message=["From: "+from_]
   message.append("To: "+to)
   message.append("Subject: "+subject)
   message.append("")
